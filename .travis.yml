@@ -1,0 +1,14 @@
+# super admin permission
+sudo: required
+
+services:
+  # we need to tell travis that we want to use docker
+  - docker
+
+before_install:
+  # build development image
+  - docker build -f Dockerfile.dev -t docker-react-travis .
+
+script:
+  # -e CI=true to show result and exit
+  - docker run -e CI=true docker-react-travis npm run test

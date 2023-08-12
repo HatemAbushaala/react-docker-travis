@@ -14,7 +14,10 @@
 - setup test
 
 - nginx setup for production environment
+
   - multi-step build phases
+
+- use of travis ci
 
 in order to run .dev container
 $ docker build -f Dockerfile.dev -t myreactapp .
