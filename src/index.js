@@ -5,7 +5,7 @@ root.render(
   <React.StrictMode>
     <div className="App">
       <header className="App-header">
-        <p>everything in one file :</p>
+        <p>website v2:</p>
       </header>
     </div>
   </React.StrictMode>
