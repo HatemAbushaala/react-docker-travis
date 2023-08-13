@@ -12,3 +12,23 @@ before_install:
 script:
   # -e CI=true to show result and exit
   - docker run -e CI=true docker-react-travis npm run test
+
+# deploy app to esb instance
+deploy:
+  # travis elasticbeanstalk provider
+  provider: elasticbeanstalk
+  # based on your config
+  region: "us-east-1"
+  # app name
+  app: "docker-travis"
+  env: "Docker-travis-env"
+  # where we should save our build (auto created when create esb instance)
+  bucket_name: "elasticbeanstalk-us-east-1-612936283494"
+  # path of folder you want to use ( use app name )
+  bucket_path: "docker-travis"
+  # only when push changes to main
+  on:
+    branch: main
+    # the name you set for environment variable for key and secret in travis settings/environment variables
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_id: "$AWS_SECRET_KEY"
