@@ -1,22 +1,10 @@
+# production compose
 version: "3"
 services:
   web:
     build:
       context: . #   path
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile
 
     ports:
-      - "3000:3000"
-    volumes:
-      - /reactapp/node_modules # don't map node modules
-      - .:/reactapp # map files
-  test:
-    build:
-      context: . #   path
-      dockerfile: Dockerfile.dev
-
-    volumes:
-      - /reactapp/node_modules # don't map node modules
-      - .:/reactapp # map files to watch changes
-    # override default command in dockerfile
-    command: ["npm", "run", "test"]
+      - "80:80"
