@@ -1,10 +1,8 @@
-# production compose
 version: "3"
 services:
   web:
     build:
-      context: . #   path
+      context: .
       dockerfile: Dockerfile
-
     ports:
       - "80:80"
